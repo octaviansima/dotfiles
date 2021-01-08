@@ -32,6 +32,7 @@ set hidden
 " set window title
 set title
 
+" highline the line the cursor is on
 set cursorline
 
 " intelligent indentation
@@ -45,12 +46,10 @@ set shiftwidth=4
 set expandtab
 
 
-" plugins start
 call plug#begin('~/.config/nvim/plugged')
 " file explorer
 Plug 'scrooloose/nerdtree'
 " colorscheme
-" Plug 'icymind/NeoSolarized'
 Plug 'gruvbox-community/gruvbox'
 " commenting
 Plug 'scrooloose/nerdcommenter'
@@ -58,33 +57,30 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'christoomey/vim-tmux-navigator'
 " insert brackets/quotes etc. in pairs
 Plug 'jiangmiao/auto-pairs'
-" Sublime's multiple selection
-Plug 'terryma/vim-multiple-cursors'
 " surroundings
 Plug 'tpope/vim-surround'
-" Completion 
+" completion 
 Plug 'ycm-core/YouCompleteMe'
-" Fuzzy search
+" fuzzy search
 Plug 'ctrlpvim/ctrlp.vim'
-" Display changes in git:
+" display changes in git:
 Plug 'airblade/vim-gitgutter'
-" Tagbar for ctags
+" tagbar for ctags
 Plug 'majutsushi/tagbar'
 " lighweight powerline
 Plug 'itchyny/lightline.vim'
-" icons for stuff
+" icons
 Plug 'ryanoasis/vim-devicons'
-" Show indents
+" show indents
 Plug 'Yggdroot/indentLine'
-" Make bufferline same style as lightline
+" make bufferline same style as lightline
 Plug 'mengelbrecht/lightline-bufferline'
-" For tmux/lightline integration
+" generate tmux statusline consistent with lightline
 Plug 'edkolev/tmuxline.vim'
-" plugins end
 call plug#end()
 
 
-" Auto install plugins
+" auto install plugins
 autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
@@ -95,10 +91,9 @@ if !exists("g:syntax_on")
     syntax enable
 endif
 
-
 set omnifunc=syntaxcomplete#Complete
 
-" Tab based completion
+" tab based completion
 inoremap <expr><Tab>  pumvisible() ? "\<C-n>" : "\<Tab>"
 
 " colorscheme & settings
@@ -109,20 +104,11 @@ colorscheme gruvbox
 set background=dark
 let g:gruvbox_contrast_dark = 'hard'
 
-" use System Clipboard:
+" use system clipboard
 set clipboard^=unnamed,unnamedplus
 
 " enable mouse support
 set mouse=a
-
-" Open new splits easily
-map vv <C-W>v
-map ss <C-W>s
-map Q  <C-W>q
-
-" Open splits on the right and below
-set splitbelow
-set splitright
 
 " Automatically resize splits when resizing window
 autocmd VimResized * wincmd = 
@@ -145,7 +131,7 @@ let g:lightline#bufferline#filename_modifier = ':t'
 let g:lightline#bufferline#modified = ' [m]'
 let g:lightline#bufferline#read_only = ' ⭤'
 let g:lightline#bufferline#show_number = 3
-let g:lightline#bufferline#unnamed = '[No Name]'
+let g:lightline#bufferline#unnamed = '{No Name}'
 let g:lightline#bufferline#number_map = {
 \ 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴',
 \ 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹'}
@@ -181,9 +167,6 @@ let g:lightline = {
 " Close buffer without closing split using Bd
 command Bd bp|bd #
 
-let g:vimtex_view_method = 'skim'
-let g:vimtex_complete_enabled = 1
-
 " Use ripgrep for cltrp
 let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 let g:ctrlp_use_caching = 0
@@ -193,6 +176,9 @@ autocmd FileType text,markdown,html,tex set spell
 
 " open tagbar and nerdtree together with ctrl-m
 nnoremap <C-m> :NERDTreeToggle <CR> :TagbarToggle <CR>
+
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " YouCompleteMe set up
 let g:ycm_global_ycm_extra_conf = '/Users/octaviansima/.config/nvim/plugged/YouCompleteMe/.ycm_extra_conf.py'

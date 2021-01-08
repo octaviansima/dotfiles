@@ -7,10 +7,6 @@ fi
 # change how the prompt (left of cursor) looks
 PROMPT='%f %B%F{240}%1~%f%b %# '
 
-# go stuff
-export GOPATH=/Users/octaviansima/go
-export GOROOT=/usr/local/go
-
 # access iCloud quickly
 alias cloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 
@@ -23,18 +19,12 @@ cd() {
     tmux refresh-client -S
 }
 
-# use sys python3 by default
-# alias python=/usr/local/bin/python3.7
-
 # use nvim by default
 alias vim=nvim
 
 # caps match nocaps
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 autoload -Uz compinit && compinit
-
-# more useful aliases
-alias pwdc =pwd | pbcopy
 
 # used for 256 color
 export TERM=xterm-256color
