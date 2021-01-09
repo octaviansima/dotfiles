@@ -1,7 +1,6 @@
 # automatically open TMUX on terminal start
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
     exec tmux
-
 fi
 
 # change how the prompt (left of cursor) looks
