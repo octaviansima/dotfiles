@@ -27,3 +27,10 @@ autoload -Uz compinit && compinit
 
 # used for 256 color
 export TERM=xterm-256color
+
+# kubectl alias
+alias k=kubectl
+
+# Autocomplete for kubectl and k
+source <(kubectl completion zsh)
+
