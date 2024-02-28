@@ -9,9 +9,6 @@ PROMPT='%f %B%F{240}%1~%f%b %# '
 # access iCloud quickly
 alias cloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 
-# use to sync for EECS151
-alias s151="scp -r /Users/octaviansima/Documents/College/Fall2020/EECS151/fpga_labs_fa20 eecs151-abw@c125m-1.eecs.berkeley.edu:/home/cc/eecs151/fa20/class/eecs151-abw/fpga_labs_fa20"
-
 # refresh on cd; used for working directory path in TMUX status bar
 cd() {
     builtin cd $1
@@ -20,6 +17,9 @@ cd() {
 
 # use nvim by default
 alias vim=nvim
+
+# ll command Ubuntu command
+alias ll='ls -lGaf'
 
 # caps match nocaps
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
