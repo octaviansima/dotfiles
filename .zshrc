@@ -4,7 +4,7 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
 fi
 
 # change how the prompt (left of cursor) looks
-PROMPT='%f %B%F{240}%1~%f%b %# '
+PROMPT='%F{gray}%*%f %F{cyan}%? %B%F{magenta}%~%f%b %B%F{gray}$%f%b '
 
 # access iCloud quickly
 alias cloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
@@ -33,4 +33,8 @@ alias k=kubectl
 
 # Autocomplete for kubectl and k
 source <(kubectl completion zsh)
+
+# Show colors for different file types
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
 
