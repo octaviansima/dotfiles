@@ -21,8 +21,6 @@ sudo cp init.vim ~/.config/nvim/init.vim
 brew install tmux
 brew install reattach-to-user-namespace
 
-brew install starship
-
 sudo cp .tmux.conf ~/
 sudo cp .tmux.theme ~/
 
