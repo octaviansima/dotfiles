@@ -19,6 +19,7 @@ mkdir -p ~/.config/nvim
 sudo cp init.vim ~/.config/nvim/init.vim
 
 brew install tmux
+brew install fzf
 brew install reattach-to-user-namespace
 
 sudo cp .tmux.conf ~/
