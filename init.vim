@@ -59,10 +59,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs'
 " surroundings
 Plug 'tpope/vim-surround'
-" completion 
-Plug 'ycm-core/YouCompleteMe'
 " fuzzy search
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 " display changes in git:
 Plug 'airblade/vim-gitgutter'
 " tagbar for ctags
@@ -167,15 +166,15 @@ let g:lightline = {
 " Close buffer without closing split using Bd
 command Bd bp|bd #
 
-" Use ripgrep for cltrp
-let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-let g:ctrlp_use_caching = 0
-
 " Enable spell checking for text files
 autocmd FileType text,markdown,html,tex set spell
 
 " open tagbar and nerdtree together with ctrl-m
 nnoremap <C-m> :NERDTreeToggle <CR> :TagbarToggle <CR>
+
+" Open fzf with ctrl-p, and ripgrep with ctrl-r
+nnoremap <C-p> :Files<Cr>
+nnoremap <C-r> :Rg<Cr>
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
