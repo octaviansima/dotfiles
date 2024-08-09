@@ -3,6 +3,12 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
     exec tmux
 fi
 
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+precmd() {
+    vcs_info
+}
+
 # change how the prompt (left of cursor) looks
 PROMPT='%F{gray}%*%f %F{cyan}%? %B%F{magenta}%~%f%b %B%F{gray}$%f%b '
 
@@ -18,7 +24,7 @@ cd() {
 # use nvim by default
 alias vim=nvim
 
-# ll command Ubuntu command
+# Ubuntu ll command
 alias ll='ls -lGaf'
 
 # caps match nocaps
@@ -37,4 +43,6 @@ source <(kubectl completion zsh)
 # Show colors for different file types
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
+
+export EDITOR=nvim
 

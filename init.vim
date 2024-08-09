@@ -179,6 +179,11 @@ nnoremap <C-r> :Rg<Cr>
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
+" Don't conceal quotes in JSON files
+autocmd Filetype json
+  \ let g:indentLine_setConceal = 0 |
+  \ let g:vim_json_syntax_conceal = 0
+
 " YouCompleteMe set up
 let g:ycm_global_ycm_extra_conf = '/Users/octaviansima/.config/nvim/plugged/YouCompleteMe/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui = 0
