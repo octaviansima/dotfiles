@@ -54,11 +54,6 @@ export TERM=xterm-256color
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-# Application stuff
-export ENV="dev"
-export ENV_TYPE=$ENV
-export MOUNT_PATH="/tmp"
-
 # Docker hack
 export DOCKER_DEFAULT_PLATFORM=linux/arm64
 
@@ -68,33 +63,15 @@ if [ -f '/Users/octavian/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Us
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/octavian/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/octavian/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
-# For Postgres
-export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
-export PGHOST=localhost
-export PGPORT=5432
-export PGNAME=postgres
-export PGUSER=octavian
-export PGSSLMODE=require
-
-# Go
-GOPATH="/Users/octavian/go"
-export PATH="$GOPATH/bin:$PATH"
-
 . "$HOME/.local/bin/env"
 
 # bun completions
 [ -s "/Users/octavian/.bun/_bun" ] && source "/Users/octavian/.bun/_bun"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 # Auto-suggestions
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^[[Z' autosuggest-accept
 
-# opencode
-export PATH=/Users/octavian/.opencode/bin:$PATH
-
 # Source local secrets (API keys, tokens, etc.)
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
