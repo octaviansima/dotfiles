@@ -1,12 +1,12 @@
 [user]
-  name  = Octavian Sima 
-  email = octavian.sima98@gmail.com
+	name = Octavian Sima
+	email = octavian@factory.ai
 [github]
-  user = octaviansima 
-[hub]
-  protocol = https
+  user = factory-octavian
 [core]
-  editor = vim -f
+  editor = nvim
+	compression = 0
+	longpaths = true
 [push]
   config = default
   default = tracking
@@ -42,3 +42,30 @@
   dw      = diff --color-words
   l       = log --pretty='format:%C(yellow)%h %C(blue)%ad %C(reset)%s%C(red)%d %C(green)%an%C(reset), %C(cyan)%ar' --date=short
   s       = status -s -b
+
+[safe]
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+[pack]
+	windowMemory = 100m
+	packSizeLimit = 100m
+	threads = 1
+	writeBitmaps = false
